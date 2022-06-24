@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d29ff40eebf1424e854396890ac89afa" Name="Diagram1">
+        <EntityTypeShape EntityType="Store_CentresModel.Employers" Width="1.5" PointX="5.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Store_CentresModel.Pavilions" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Store_CentresModel.Rents" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Store_CentresModel.Roles" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Store_CentresModel.Status_Pavilion" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Store_CentresModel.Status_Rent" Width="1.5" PointX="5.25" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Store_CentresModel.Status_SC" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Store_CentresModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Store_CentresModel.Tenants" Width="1.5" PointX="5.25" PointY="15.125" IsExpanded="true" />
+        <AssociationConnector Association="Store_CentresModel.FK_Employers_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="Store_CentresModel.FK_Rents_Employers" ManuallyRouted="false" />
+        <AssociationConnector Association="Store_CentresModel.FK_Pavilions_Status_pavilion" ManuallyRouted="false" />
+        <AssociationConnector Association="Store_CentresModel.FK_Rents_Pavilions" ManuallyRouted="false" />
+        <AssociationConnector Association="Store_CentresModel.FK_Rents_Status_rent" ManuallyRouted="false" />
+        <AssociationConnector Association="Store_CentresModel.FK_Rents_Tenants" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Store_CentresModel.Store_Centers" Width="1.5" PointX="3" PointY="12.25" />
+        <AssociationConnector Association="Store_CentresModel.FK_Pavilions_Store_Centers1" />
+        <AssociationConnector Association="Store_CentresModel.FK_Store_Centers_Status_SC1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
