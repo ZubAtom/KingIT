@@ -72,7 +72,7 @@ namespace KingIT.Сессия_1
                 new_Pav.Status = Cb_Status.SelectedIndex + 1;
                 db.Pavilions.Add(new_Pav);
                 db.SaveChanges();
-                NavigationService.GoBack();
+                NavigationService.Navigate(new Pavilions_list(id_empl,id_SC));
             }
         }
 
@@ -94,7 +94,7 @@ namespace KingIT.Сессия_1
 
         private void Rent_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Rent_pavilion(id_Pav,id_SC,id_empl));
+            NavigationService.Navigate(new Rent_pavilion(id_Pav, id_SC, id_empl));
         }
     }
 }

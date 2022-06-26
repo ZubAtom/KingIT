@@ -49,13 +49,6 @@ namespace KingIT.Сессия_1
                     Cb_Status.SelectedIndex = SC.Status - 1;
                     IMAGES = SC.Image;
                     img.DataContext = this;
-                    /* MemoryStream ms = new MemoryStream();
-                    ms.Write(SC.Image, 0, SC.Image.Length);
-                    BitmapImage bm = new BitmapImage();
-                    bm.BeginInit();
-                    bm.StreamSource = ms;
-                    bm.EndInit();
-                    img.Source = bm;*/
                 }
                 else
                 {
@@ -82,7 +75,7 @@ namespace KingIT.Сессия_1
                 new_SC.Image = IMAGES;
                 db.Store_Centers.Add(new_SC);
                 db.SaveChanges();
-                NavigationService.GoBack();
+                NavigationService.Navigate(new SC_list(id_empl));
             }
         }
 
@@ -100,7 +93,7 @@ namespace KingIT.Сессия_1
                 SC.Status = Cb_Status.SelectedIndex + 1;
                 SC.Image = IMAGES;
                 db.SaveChanges();
-                NavigationService.GoBack();
+                NavigationService.Navigate(new SC_list(id_empl));
             }
         }
 

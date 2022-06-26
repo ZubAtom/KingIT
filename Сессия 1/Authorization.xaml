@@ -27,8 +27,8 @@
         <Label Content="Авторизация" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Width="100" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" FontWeight="Bold"/>
         <Label Content="Логин" Grid.Row="1" Grid.Column="1" Width="100" Height="50" VerticalAlignment="Top" HorizontalAlignment="Right" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14"/>
         <Label Content="Пароль" Grid.Row="2" Grid.Column="1" Width="100" Height="50" VerticalAlignment="Top" HorizontalAlignment="Right" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14"/>
-        <TextBox x:Name="Login" Text="Adam@gmai.com" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Width="300" Height="50" VerticalAlignment="Top" HorizontalAlignment="Center" MaxLength="50"/>
-        <PasswordBox x:Name="Password" Password="7SP9CV" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Width="300" Height="50" VerticalAlignment="Top" HorizontalAlignment="Center" VerticalContentAlignment="Center" MaxLength="50" />
+        <TextBox x:Name="Login" Text="Vladlena@gmai.com" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Width="300" Height="50" VerticalAlignment="Top" HorizontalAlignment="Center" MaxLength="50"/>
+        <PasswordBox x:Name="Password" Password="07i7Lb" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Width="300" Height="50" VerticalAlignment="Top" HorizontalAlignment="Center" VerticalContentAlignment="Center" MaxLength="50" />
         <Image x:Name="Captcha" Height="100" Width="200" Grid.Column="2" Grid.Row="3" Visibility="Hidden"/>
         <TextBox x:Name="Tb_captcha" Grid.Row="4" Grid.Column="2"  Width="200" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="14" Visibility="Hidden"/>
         <Button x:Name="Enter" Content="Войти" Click="Enter_Click" Grid.Column="5" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top"/>

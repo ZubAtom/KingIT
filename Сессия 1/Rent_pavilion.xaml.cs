@@ -41,6 +41,7 @@ namespace KingIT.Сессия_1
         {
             using (var db = new Store_CentresEntities())
             {
+                Pavilions pavilion = db.Pavilions.Where(s => s.ID_SC == id_SC && s.ID_Pavilion == id_Pav).FirstOrDefault();
                 try
                 {
                     db.new_Rent(id_SC, id_Pav, Cb_Tenant.SelectedIndex + 1, id_empl, Dp_Start_rent.SelectedDate, Dp_Finish_rent.SelectedDate);
@@ -50,8 +51,9 @@ namespace KingIT.Сессия_1
                 {
                     MessageBox.Show(exe.Message);
                 }
+                NavigationService.Navigate(new Pavilion_interface(id_empl, pavilion, id_SC));
             }
-            NavigationService.GoBack();
+            
         }
     }
 }

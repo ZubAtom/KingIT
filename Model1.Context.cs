@@ -174,5 +174,23 @@ namespace KingIT
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("new_Rent", id_SCParameter, id_pavilionParameter, id_tenantParameter, id_employerParameter, start_rentParameter, finish_rentParameter);
         }
+    
+        public virtual ObjectResult<TC_stat_Result> TC_stat(string name_tc)
+        {
+            var name_tcParameter = name_tc != null ?
+                new ObjectParameter("name_tc", name_tc) :
+                new ObjectParameter("name_tc", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TC_stat_Result>("TC_stat", name_tcParameter);
+        }
+    
+        public virtual ObjectResult<SC_stat_Result> SC_stat(string name_tc)
+        {
+            var name_tcParameter = name_tc != null ?
+                new ObjectParameter("name_tc", name_tc) :
+                new ObjectParameter("name_tc", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SC_stat_Result>("SC_stat", name_tcParameter);
+        }
     }
 }

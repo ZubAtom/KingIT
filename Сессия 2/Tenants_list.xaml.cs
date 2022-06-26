@@ -91,11 +91,6 @@ namespace KingIT.Сессия_2
             NavigationService.Navigate(new Tenant_interface( null));
         }
 
-        private void Tb_Name_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            
-        }
-
         private void Tb_Name_TextChanged(object sender, TextChangedEventArgs e)
         {
             Del.Visibility = Visibility.Hidden;

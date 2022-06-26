@@ -218,6 +218,9 @@
           <Parameter Name="finish_rent" Type="date" Mode="In" />
         </Function>
         <Function Name="Rescheduling" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SC_stat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name_tc" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -557,6 +560,12 @@
             <Parameter Name="start_rent" Mode="In" Type="DateTime" />
             <Parameter Name="finish_rent" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <FunctionImport Name="TC_stat" ReturnType="Collection(Store_CentresModel.TC_stat_Result)">
+            <Parameter Name="name_tc" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SC_stat" ReturnType="Collection(Store_CentresModel.SC_stat_Result)">
+          <Parameter Name="name_tc" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -609,6 +618,24 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="TC_stat_Result">
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="30" />
+          <Property Type="Int32" Name="Quantity_pavilions" Nullable="false" />
+          <Property Type="Decimal" Name="Avg_cost" Nullable="true" Precision="19" />
+          <Property Type="Int32" Name="NotFree" Nullable="true" />
+          <Property Type="Int32" Name="Free" Nullable="true" />
+          <Property Type="Double" Name="Free_Square" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SC_stat_Result">
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="30" />
+          <Property Type="Int32" Name="Quantity_pavilions" Nullable="false" />
+          <Property Type="Decimal" Name="Avg_cost" Nullable="true" Precision="19" />
+          <Property Type="Int32" Name="NotFree" Nullable="true" />
+          <Property Type="Int32" Name="Free" Nullable="true" />
+          <Property Type="Double" Name="Free_Square" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -755,6 +782,19 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="new_Rent" FunctionName="Хранилище Store_CentresModel.new_Rent" />
+          <FunctionImportMapping FunctionImportName="SC_stat" FunctionName="Хранилище Store_CentresModel.SC_stat">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Store_CentresModel.SC_stat_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Quantity_pavilions" ColumnName="Quantity_pavilions" />
+                <ScalarProperty Name="Avg_cost" ColumnName="Avg_cost" />
+                <ScalarProperty Name="NotFree" ColumnName="NotFree" />
+                <ScalarProperty Name="Free" ColumnName="Free" />
+                <ScalarProperty Name="Free_Square" ColumnName="Free_Square" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

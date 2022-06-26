@@ -41,10 +41,19 @@ namespace KingIT.Сессия_1
                     var employer = db.Employers.Where(s => s.Login.ToLower() == login && s.Password == password).FirstOrDefault();
                     if (employer != null)
                     {
-                        if (employer.Role == 3)
-                            NavigationService.Navigate(new Manager_C(employer.ID_employer));
-                        else
-                            MessageBox.Show("Вы не Менеджер С");
+                        switch (employer.Role)
+                        {
+                            case 3:
+                                NavigationService.Navigate(new Manager_C(employer.ID_employer));
+                                break;
+                            case 2:
+                                NavigationService.Navigate(new Сессия_2.SC_stat());
+                                break;
+                            default:
+                                MessageBox.Show("Вы не обладаете необходимым уровнем доступа");
+                                break;
+                                    
+                        }
                     }
                     else
                     {

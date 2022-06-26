@@ -104,12 +104,19 @@ namespace KingIT.Сессия_1
             {
                 using (var db = new Store_CentresEntities())
                 {
-                    int id = ((dynamic)Lv.SelectedItem).id;
-                    var SC = db.Store_Centers.Where(s => s.ID_SC == id).FirstOrDefault();
-                    SC.Status = 4;
-                    db.SaveChanges();
-                    GetList();
-                    GetCbs();
+                    try
+                    {
+                        int id = ((dynamic)Lv.SelectedItem).id;
+                        var SC = db.Store_Centers.Where(s => s.ID_SC == id).FirstOrDefault();
+                        SC.Status = 4;
+                        db.SaveChanges();
+                        GetList();
+                        GetCbs();
+                    }
+                    catch (Exception exe)
+                    {
+                        MessageBox.Show("Ошибка удвления павильона. Нельзя удалить арендованный или забронированный павильон");
+                    }
                 }
             }
         }

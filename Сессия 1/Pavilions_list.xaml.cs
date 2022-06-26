@@ -168,12 +168,19 @@ namespace KingIT.Сессия_1
             {
                 using (var db = new Store_CentresEntities())
                 {
-                    int id_sc = ((dynamic)Lv.SelectedItem).ID_SC;
-                    string id_pav = ((dynamic)Lv.SelectedItem).Number_pavilion;
-                    var pav = db.Pavilions.Where(s => s.ID_SC == id_sc && s.ID_Pavilion==id_pav).FirstOrDefault();
-                    pav.Status = 4;
-                    db.SaveChanges();
-                    GetList();
+                    try
+                    {
+                        int id_sc = ((dynamic)Lv.SelectedItem).ID_SC;
+                        string id_pav = ((dynamic)Lv.SelectedItem).Number_pavilion;
+                        var pav = db.Pavilions.Where(s => s.ID_SC == id_sc && s.ID_Pavilion == id_pav).FirstOrDefault();
+                        pav.Status = 4;
+                        db.SaveChanges();
+                        GetList();
+                    }
+                    catch (Exception exe)
+                    {
+                        MessageBox.Show("Ошибка удаления ТЦ. Нельзя удалить ТЦ с арендованными или забронированными павильонами");
+                    }
                 }
             }
         }
